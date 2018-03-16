@@ -33,12 +33,14 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Cliente.findByTelefono", query = "SELECT c FROM Cliente c WHERE c.telefono = :telefono")
     , @NamedQuery(name = "Cliente.findByEmail", query = "SELECT c FROM Cliente c WHERE c.email = :email")})
 public class Cliente implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "cedula")
     private Integer cedula;
+    @Column(name = "password")
+    private String password;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "ciudad")
@@ -63,6 +65,14 @@ public class Cliente implements Serializable {
 
     public void setCedula(Integer cedula) {
         this.cedula = cedula;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNombre() {

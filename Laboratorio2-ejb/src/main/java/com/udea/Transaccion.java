@@ -71,20 +71,20 @@ public class Transaccion implements Serializable {
         this.fecha = fecha;
     }
 
-    public Carro getIdCarro() {
-        return idCarro;
+    public Integer getIdCarro() {
+        return this.idCarro.getMatricula();
     }
 
-    public void setIdCarro(Carro idCarro) {
-        this.idCarro = idCarro;
+    public void setIdCarro(Integer idCarro) {
+        this.idCarro.setMatricula(idCarro);
+    }   
+    
+    public Integer getIdCliente() {
+        return this.idCliente.getCedula();
     }
 
-    public Cliente getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Cliente idCliente) {
-        this.idCliente = idCliente;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente.setCedula(idCliente);
     }
 
     @Override
