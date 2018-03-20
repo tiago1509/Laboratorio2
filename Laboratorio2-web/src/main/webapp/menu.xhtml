@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+
+            nav{
+                /*Bordes redondeados*/
+                -webkit-border-radius:5px;/*Para chrome y Safari*/
+
+                background-image: -webkit-gradient(linear, left top, left bottom, from(#232598), to(#232598));/*Para chrome y Safari*/
+                /*Degradados*/
+
+                overflow:hidden;
+                padding:16px;
+                width:100%;
+            }
+            nav ul{
+                list-style:none;
+                margin:0 10px 0 10px;
+                padding:0;
+            }
+            nav ul li{
+                /*Bordes redondeados*/
+                -webkit-border-radius:15px;/*Chrome y Safari*/
+                float:left ;
+                font-family:roboto, sans-serif;
+                font-size:18px;
+                /*font-weight:bold;*/
+                margin-right:10px;
+                text-align:center;
+                /*Sombras para texto, los mismos parametros que box-shadow*/
+                text-shadow: 0px 1px 0px #FFF;
+            }
+            nav ul li:hover{
+                /*Degradado de fondo*/
+                background-image: -webkit-gradient(linear, left top, left bottom, from(#232598), to( #fff));/*Chrome y Safari*/
+
+                /*Sombras*/
+                -webkit-box-shadow:  1px -1px 0px #000;/*Chrome y Safari*/
+
+                border:0px solid #000;
+            }
+            nav ul li a{
+                color:	#ffffff;
+                display:block;
+                padding:7px;
+                text-decoration:none;
+                /*Transiciones*/
+                -webkit-transition: 0.4s linear all;
+                -moz-transition: 0.4s linear all;
+                -o-transition: 0.4s linear all;
+                transition: 0.4s linear all;
+            }
+            nav ul li a:hover {
+                color:#fff;
+            }
+
+        </style>
+
+        <nav>
+            <ul>
+                <li><a href="">VER CATÁLOGO</a></li>
+                <li><a href="">VER COMPRA</a></li>
+                <li><a href="">SALIR</a></li>
+
+            </ul>
+        </nav>
+    </h:head>
+
+</html>
+
