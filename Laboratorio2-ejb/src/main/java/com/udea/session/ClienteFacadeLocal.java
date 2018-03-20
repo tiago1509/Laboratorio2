@@ -35,4 +35,8 @@ public interface ClienteFacadeLocal {
     Cliente getClienteById(int idCliente);
 
     void registrar(final int cedula, String password, String nombre, String ciudad, String telefono, String email);
+
+    boolean checkLogin(int cedula, String password);
+
+    List<Cliente> getCliente();
 }

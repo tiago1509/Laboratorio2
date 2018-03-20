@@ -86,6 +86,22 @@ public class Transaccion implements Serializable {
     public void setIdCliente(Integer idCliente) {
         this.idCliente.setCedula(idCliente);
     }
+    
+    public Integer getCarro() {
+        return this.idCarro.getMatricula();
+    }
+    
+    public void setCarro(int idMatricula) {
+        this.idCarro = new Carro(idMatricula);
+    }
+    
+    public Integer getCliente() {
+        return this.idCliente.getCedula();
+    }
+    
+    public void setCliente(int idCliente) {
+        this.idCliente = new Cliente(idCliente);
+    }
 
     @Override
     public int hashCode() {

@@ -31,24 +31,11 @@ public class ClienteFacade extends AbstractFacade<Cliente> implements ClienteFac
     public ClienteFacade() {
         super(Cliente.class);
     }
-    
-    public List<Cliente> getClientes(){
-        Query q = em.createNamedQuery("Cliente.findAll");
-        return q.getResultList();
-    }
 
     @Override
     public Cliente getClienteById(int idCliente) {       
         Query q = em.createNamedQuery("Cliente.findByCedula");        
         return (Cliente) q.getSingleResult();
-    }
-    
-    public boolean checkLogin(Integer i, String p) {       
-        Query q =em.createQuery("select a from Cliente a"
-            + " where a.cedula=:i and a.password=:p");
-        q.setParameter("i", i);
-        q.setParameter("p", p);       
-       return q.getResultList().size()>0;
     }
 
     @Override
@@ -63,6 +50,26 @@ public class ClienteFacade extends AbstractFacade<Cliente> implements ClienteFac
         c.setEmail(email);
         
         em.persist(c);      
+    }
+
+    @Override
+    public boolean checkLogin(int cedula, String password) {
+        Query q =em.createQuery("select a from Cliente a"
+            + " where a.cedula=:cedula and a.password=:password");
+        q.setParameter("cedula", cedula);
+        q.setParameter("password", password);       
+       return q.getResultList().size()>0;
+    }
+
+    @Override
+    public List<Cliente> getCliente() {
+        Query q = em.createNamedQuery("Cliente.findAll");
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Cliente> getClientes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

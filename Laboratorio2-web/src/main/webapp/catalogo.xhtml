@@ -2,13 +2,75 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>catálogo</title>
     </h:head>
     <h:body>
          <ui:include src="menu.xhtml" />
-        Hello from Facelets
+         
+         <f:view>
+
+
+             <h:form>
+                 <h1><h:outputText value="List"/></h1>
+                 <h:dataTable value="#{controllerBean.carros}" var="item">
+                     <h:column>
+                         <f:facet name="header">
+                             <h:outputText value="Matricula"/>
+                         </f:facet>
+                         <h:outputText value="#{item.matricula}"/>
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">
+                             <h:outputText value="Marca"/>
+                         </f:facet>
+                         <h:outputText value="#{item.marca}"/>
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">
+                             <h:outputText value="Color"/>
+                         </f:facet>
+                         <h:outputText value="#{item.color}"/>
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">
+                             <h:outputText value="Modelo"/>
+                         </f:facet>
+                         <h:outputText value="#{item.modelo}"/>
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">
+                             <h:outputText value="Precio"/>
+                         </f:facet>
+                         <h:outputText value="#{item.precio}"/>
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">
+                             <h:outputText value="Tipo"/>
+                         </f:facet>
+                         <h:outputText value="#{item.tipo}"/>
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">
+                             <h:outputText value="Imagen"/>
+                         </f:facet>
+                         <h:outputText value="#{item.imagen}"/>
+                     </h:column>
+                     <h:column>
+                         <f:facet name="header">
+                             <h:outputText value="FotoBase64"/>
+                         </f:facet>
+                         <h:outputText value="#{item.fotoBase64}"/>
+                     </h:column>
+                 </h:dataTable>
+             </h:form>
+         </f:view>
+
+         
+         
+         
     </h:body>
 </html>
 

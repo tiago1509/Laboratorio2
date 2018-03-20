@@ -5,7 +5,12 @@
  */
 package com.udea;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.net.URLConnection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -16,6 +21,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.DatatypeConverter;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -154,4 +160,18 @@ public class Carro implements Serializable {
         return "com.udea.Carro[ matricula=" + matricula + " ]";
     }
     
+    public String getFotoBase64() throws IOException {
+        if (imagen != null) {
+            String mimeType;
+            try (InputStream is = new BufferedInputStream(new ByteArrayInputStream(imagen))) {
+                mimeType = URLConnection.guessContentTypeFromStream(is);
+            }
+            String base64 = DatatypeConverter.printBase64Binary(imagen);
+            System.out.println("data:" + mimeType + ";base64," + base64);
+            return "data:" + mimeType + ";base64," + base64;
+        }
+        return "";
+    
+        
+}
 }
